@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MyBiz Line — Call Center Town</title>
+<link rel="stylesheet" href="styles.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="scene-container"></div>
+
+<header id="hud-top">
+  <div class="title-block">
+    <h1>MyBiz Line &mdash; Call Center Town</h1>
+    <p class="subtitle">Live view of everything going on</p>
+  </div>
+  <div class="status-block">
+    <span class="live-dot" id="live-dot"></span>
+    <span id="live-label">LIVE</span>
+    <span class="divider">|</span>
+    <span id="updated-at">loading&hellip;</span>
+  </div>
+</header>
+
+<aside id="legend">
+  <h2>Town guide</h2>
+  <ul>
+    <li><span class="swatch" style="background:#c9a227"></span><strong>Town square</strong> &mdash; today&rsquo;s pulse. Click for details.</li>
+    <li><span class="swatch" style="background:#5b7fa6"></span><strong>Buildings</strong> &mdash; one per line of business. Height = today&rsquo;s volume, lit windows = active conversations.</li>
+    <li><span class="swatch" style="background:#c0392b"></span><strong>Cars</strong> &mdash; live calls in progress. Click for caller info.</li>
+    <li><span class="swatch" style="background:#7a9e7e"></span><strong>Houses</strong> &mdash; hot leads. A red flag means a callback is owed (waiting 2+ hours).</li>
+    <li><span class="swatch" style="background:#7dd87d"></span><strong>Streetlights</strong> &mdash; green when nothing is waiting, amber when something has waited 2+ hours.</li>
+  </ul>
+  <p class="mock-note" id="mock-note">Showing mock data &mdash; wire <code>data.json</code> to your stack. See README.</p>
+</aside>
+
+<div id="stats-card" class="hidden">
+  <button id="card-close" aria-label="Close">&times;</button>
+  <h2 id="card-title"></h2>
+  <p id="card-subtitle"></p>
+  <div id="card-body"></div>
+</div>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Building the town&hellip;</p>
+</div>
+
+<div id="error-banner" class="hidden"></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
